@@ -3,6 +3,7 @@
 #include "game_menu.h"
 #include "game_config.h"
 #include "game_screen.h"
+#include "background.h"
 
 #include "raylib.h"
 
@@ -20,8 +21,8 @@ static void UpdateOption() {
     else if (IsKeyPressed(KEY_ENTER) && option == QUIT) EndSceneManager();
     else if (IsKeyPressed(KEY_ENTER) && option == START) ChangeScene(game_screen);
 
-    if(option<START) option = QUIT;
-    if(option>QUIT) option = START;
+    if(option < START) option = QUIT;
+    if(option > QUIT) option = START;
 }
 
 static void LoadScene(void) {}
@@ -32,11 +33,9 @@ static void UpdateScene(void) {
 }
 
 static void DrawScene(void) {
-    BeginDrawing();
-    ClearBackground(RAYWHITE);
-    DrawText("Start", game_window.center_width, game_window.center_height, 20, option == START ? RED : BLACK);
-    DrawText("Quit", game_window.center_width, game_window.center_height + 40, 20, option == QUIT ? RED : BLACK);
-    EndDrawing();
+    DrawBackground();
+    DrawText("Start", game_window.center_width, game_window.center_height, 20, option == START ? RED : RAYWHITE);
+    DrawText("Quit", game_window.center_width, game_window.center_height + 40, 20, option == QUIT ? RED : RAYWHITE);
 }
 
 Scene game_menu = {

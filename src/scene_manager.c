@@ -18,7 +18,11 @@ void StartSceneManager(void) {
 void SceneLoop(void) {
     scene_state = RUNNING;
     current_scene.update_scene();
+
+    BeginDrawing();
+    ClearBackground(WHITE);
     current_scene.draw_scene();
+    EndDrawing();
 }
 
 void ChangeScene(Scene new_scene) {

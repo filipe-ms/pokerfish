@@ -118,12 +118,20 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/background.o
+GENERATED += $(OBJDIR)/draw_hand.o
+GENERATED += $(OBJDIR)/draw_hand_background.o
 GENERATED += $(OBJDIR)/game_config.o
 GENERATED += $(OBJDIR)/game_menu.o
+GENERATED += $(OBJDIR)/game_screen.o
 GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/scene_manager.o
+OBJECTS += $(OBJDIR)/background.o
+OBJECTS += $(OBJDIR)/draw_hand.o
+OBJECTS += $(OBJDIR)/draw_hand_background.o
 OBJECTS += $(OBJDIR)/game_config.o
 OBJECTS += $(OBJDIR)/game_menu.o
+OBJECTS += $(OBJDIR)/game_screen.o
 OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/scene_manager.o
 
@@ -189,10 +197,22 @@ endif
 # File Rules
 # #############################################
 
+$(OBJDIR)/background.o: ../../src/background.c
+	@echo "$(notdir $<)"
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/draw_hand.o: ../../src/draw_hand.c
+	@echo "$(notdir $<)"
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/draw_hand_background.o: ../../src/draw_hand_background.c
+	@echo "$(notdir $<)"
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/game_config.o: ../../src/game_config.c
 	@echo "$(notdir $<)"
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/game_menu.o: ../../src/game_menu.c
+	@echo "$(notdir $<)"
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/game_screen.o: ../../src/game_screen.c
 	@echo "$(notdir $<)"
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: ../../src/main.c
