@@ -2,16 +2,17 @@
 #include "scene_manager.h"
 #include "game_menu.h"
 #include "background.h"
+#include "list.h"
 
 // Raylib includes
 #include "raylib.h"
 #include "resource_dir.h"
 
 // Function prototypes
-void LoadGameResources(void);
-void UnloadGameResources(void);
+static void LoadGameResources(void);
+static void UnloadGameResources(void);
 
-int main ()
+int main(void)
 {
 	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
 	InitWindow(game_window.width, game_window.height, "Hello Raylib");
@@ -29,12 +30,13 @@ int main ()
 	return 0;
 }
 
-void LoadGameResources(void)
+static void LoadGameResources(void)
 {
 	LoadBackground();
 }
 
-void UnloadGameResources(void)
+static void UnloadGameResources(void)
 {
 	UnloadBackground();
+	List_FreeAll();
 }

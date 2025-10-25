@@ -2,8 +2,10 @@
 
 #include "game_menu.h"
 #include "game_config.h"
-#include "game_screen.h"
 #include "background.h"
+#include "scene_manager.h"
+#include "game_screen.h"
+#include "game_manager.h"
 
 #include "raylib.h"
 
@@ -19,7 +21,7 @@ static void UpdateOption() {
     else if (IsKeyPressed(KEY_UP)) option--;
     
     else if (IsKeyPressed(KEY_ENTER) && option == QUIT) EndSceneManager();
-    else if (IsKeyPressed(KEY_ENTER) && option == START) ChangeScene(game_screen);
+    else if (IsKeyPressed(KEY_ENTER) && option == START) ChangeScene(game);
 
     if(option < START) option = QUIT;
     if(option > QUIT) option = START;

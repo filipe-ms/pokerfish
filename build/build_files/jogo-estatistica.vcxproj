@@ -301,18 +301,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\background.h" />
+    <ClInclude Include="..\..\include\cards.h" />
     <ClInclude Include="..\..\include\game_config.h" />
     <ClInclude Include="..\..\include\game_menu.h" />
     <ClInclude Include="..\..\include\game_screen.h" />
+    <ClInclude Include="..\..\include\list.h" />
+    <ClInclude Include="..\..\include\player.h" />
     <ClInclude Include="..\..\include\resource_dir.h" />
     <ClInclude Include="..\..\include\scene_manager.h" />
+    <ClInclude Include="..\..\include\draw_card.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\background.c" />
+    <ClCompile Include="..\..\src\cards.c" />
+    <ClCompile Include="..\..\src\list.c" />
+    <ClCompile Include="..\..\src\player.c" />
     <ClCompile Include="..\..\src\game_config.c" />
     <ClCompile Include="..\..\src\game_menu.c" />
     <ClCompile Include="..\..\src\main.c" />
     <ClCompile Include="..\..\src\scene_manager.c" />
     <ClCompile Include="..\..\src\game_screen.c" />
+    <ClCompile Include="..\..\src\draw_card.c" />
+    <ClCompile Include="..\..\src\game_manager.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\icon.ico" />

@@ -7,12 +7,6 @@
 static Texture cards;
 static Texture cardback;
 
-static Rectangle sourceRec = { 0, 0, 100, 150 };
-static Rectangle sourceRec2 = { 107, 0, 100, 150 };
-
-static Rectangle destRec = { 600, 100, 100, 150 };
-static Rectangle destRec2 = { 800, 100, 100, 150 };
-
 static void LoadScene(void) {
 	cards = LoadTexture("AllCards.png");
 	cardback = LoadTexture("cardBackRed.png");
@@ -26,9 +20,6 @@ static void UpdateScene(void) {}
 
 static void DrawGameScreenLeft(void) {
 	DrawText("Game Screen", game_window.game_area_center_width, game_window.center_height, 20, RAYWHITE);
-
-	DrawTexturePro(cards, sourceRec, destRec, (Vector2) { 0, 0 }, 0.0f, WHITE);
-	DrawTexturePro(cards, sourceRec2, destRec2, (Vector2) { 0, 0 }, 0.0f, WHITE);
 }
 
 static void DrawGameScreenRight(void) {
@@ -36,11 +27,8 @@ static void DrawGameScreenRight(void) {
 }
 
 void DrawScene(void) {
-	BeginDrawing();
-	ClearBackground(BLACK);
 	DrawGameScreenLeft();
 	DrawGameScreenRight();
-	EndDrawing();
 }
 
 Scene game_screen = {

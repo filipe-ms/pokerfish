@@ -11,7 +11,7 @@ typedef enum {
 static Scene current_scene;
 static SceneState scene_state;
 
-void InitSceneManager(void) {
+void StartSceneManager(void) {
      scene_state = RUNNING;
 }
 
