@@ -6,11 +6,9 @@ Rectangle cards[NUMBER_OF_SUITS][NUMBER_OF_RANKS];
 
 Texture card_texture;
 
-static const int card_width = 419;
-static const int card_height = 626;
-static const int draw_width = 67;
-static const int draw_height = 100;
-static const Vector2 origin = { 67 / 2.0f, 100 / 2.0f };
+static const int card_width = 106;
+static const int card_height = 158;
+static const Vector2 origin = { 53, 79 };
 
 static void InitCards(void) {
 	for (int suit = 0; suit < NUMBER_OF_SUITS; suit++) {
@@ -35,7 +33,7 @@ void UnloadCardTextures(void) {
 }
 
 void DrawCard(CardRank rank, CardSuit suit, Vector2 dest) {
-	Rectangle destination = { dest.x, dest.y, draw_width, draw_height };
+	Rectangle destination = { dest.x, dest.y, card_width, card_height };
 	Rectangle source = cards[suit][rank];
 	DrawTexturePro(card_texture, source, destination, origin, 0.0f, WHITE);
 }
@@ -44,7 +42,7 @@ void DrawPlayerHand(void) {
 	int hand_size = Player_Get()->hand->size;
 	if (hand_size == 0) return;
 
-	float spacing = 100.0f;
+	float spacing = 120.0f;
 
 	float start_x = game_window.game_area_center_width - ((hand_size - 1) * spacing) / 2.0f;
 

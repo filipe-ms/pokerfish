@@ -43,7 +43,7 @@ void LoadBackground(void) {
     background[1] = LoadTexture("bg_teal.png");
     background[2] = LoadTexture("bg_green.png");
     
-    current_background.style = BG_BLUE;
+    current_background.style = BG_GREEN;
     current_background.stretch = STRETCH_SCREEN;
 }
 
