@@ -1,6 +1,7 @@
 // game_blackjack.c
 
 #include "game_blackjack.h"
+#include "game_config.h"
 #include "player.h"
 #include "card_stack.h"
 #include "draw_card.h"
@@ -11,7 +12,7 @@
 
 static int GetHandSum(void);
 
-void LoadGame(void) {
+static void LoadGame(void) {
 	LoadCardTextures();
 	CardStack_Init();
 
@@ -23,11 +24,11 @@ void LoadGame(void) {
 	Player_Init(initial_cards);
 }
 
-void UnloadGame(void) {
+static void UnloadGame(void) {
 	UnloadCardTextures();
 }
 
-void UpdateGame(void) {
+static void UpdateGame(void) {
 	if (GetHandSum() > 21) {
 		ChangeScene(game_menu);
 	}
@@ -38,9 +39,9 @@ void UpdateGame(void) {
 	}
 }
 
-void DrawGame(void) {
+static void DrawGame(void) {
 	DrawBackground();
-	DrawHandBottom(player.hand);
+	DrawHand(player.hand, game_window.game_area_center_width, game_window.height - 100, 0);
 }
 
 Scene blackjack = {
@@ -50,8 +51,8 @@ Scene blackjack = {
 	.draw_scene = DrawGame
 };
 
+#pragma region PRIVATE_FUNCTIONS
 
-// Static
 static int GetHandSum() {
 	int sum = 0;
 	int ace_count = 0;
@@ -74,3 +75,5 @@ static int GetHandSum() {
 
 	return sum;
 }
+
+#pragma endregion PRIVATE_FUNCTIONS

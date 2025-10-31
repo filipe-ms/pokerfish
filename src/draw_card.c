@@ -2,22 +2,23 @@
 #include "game_config.h"
 #include "player.h"
 
-Rectangle cards[NUMBER_OF_SUITS][NUMBER_OF_RANKS];
+static Rectangle cards[NUMBER_OF_SUITS][NUMBER_OF_RANKS];
 
-Texture card_texture;
+static Texture card_texture;
 
 static const int card_width = 106;
 static const int card_height = 158;
 static const Vector2 origin = { 53, 79 };
+static const float spacing = 120.0f;
 
 static void InitCards(void) {
 	for (int suit = 0; suit < NUMBER_OF_SUITS; suit++) {
 		for (int rank = 0; rank < NUMBER_OF_RANKS; rank++) {
 			cards[suit][rank] = (Rectangle){
-				.x = rank * card_width,
-				.y = suit * card_height,
-				.width = card_width,
-				.height = card_height
+				.x = (float)rank * card_width,
+				.y = (float)suit * card_height,
+				.width = (float)card_width,
+				.height = (float)card_height
 			};
 		}
 	}
@@ -32,27 +33,32 @@ void UnloadCardTextures(void) {
 	UnloadTexture(card_texture);
 }
 
-void DrawCard(CardRank rank, CardSuit suit, Vector2 dest) {
+void DrawCard(CardRank rank, CardSuit suit, Vector2 dest, float rotation) {
 	Rectangle destination = { dest.x, dest.y, card_width, card_height };
 	Rectangle source = cards[suit][rank];
-	DrawTexturePro(card_texture, source, destination, origin, 0.0f, WHITE);
+	DrawTexturePro(card_texture, source, destination, origin, rotation, WHITE);
 }
 
-void DrawHandBottom(List* hand) {
-	int hand_size = hand->size;
-	if (hand_size == 0) return;
+void DrawHand(List* hand, float start_x, float pos_y, float rotation) {
+	if (!hand || !hand->size) return;
 
-	float spacing = 120.0f;
-
-	float start_x = game_window.game_area_center_width - ((hand_size - 1) * spacing) / 2.0f;
-
-	float y_position = game_window.height - 100;
-
-	for (int i = 0; i < hand_size; i++) {
+	for (int i = 0; i < hand->size; i++) {
 		Card* card = (Card*)List_GetByIndex(hand, i);
 		if (card) {
-			Vector2 position = { start_x + i * spacing, y_position };
-			DrawCard(card->rank, card->suit, position);
+			Vector2 position = { start_x + i * spacing, pos_y };
+			DrawCard(card->rank, card->suit, position, rotation);
+		}
+	}
+}
+
+void DrawHandHorizontal(List* hand, float pos_x, float  start_y, float rotation) {
+	if (!hand || !hand->size) return;
+
+	for (int i = 0; i < hand->size; i++) {
+		Card* card = (Card*)List_GetByIndex(hand, i);
+		if (card) {
+			Vector2 position = { pos_x, start_y + i * spacing };
+			DrawCard(card->rank, card->suit, position, rotation);
 		}
 	}
 }

@@ -306,6 +306,7 @@
     <ClInclude Include="..\..\include\game_config.h" />
     <ClInclude Include="..\..\include\game_blackjack.h" />
     <ClInclude Include="..\..\include\game_menu.h" />
+    <ClInclude Include="..\..\include\game_poker.h" />
     <ClInclude Include="..\..\include\game_screen.h" />
     <ClInclude Include="..\..\include\list.h" />
     <ClInclude Include="..\..\include\player.h" />
@@ -316,6 +317,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\background.c" />
     <ClCompile Include="..\..\src\card_stack.c" />
+    <ClCompile Include="..\..\src\game_poker.c" />
     <ClCompile Include="..\..\src\list.c" />
     <ClCompile Include="..\..\src\player.c" />
     <ClCompile Include="..\..\src\game_config.c" />
