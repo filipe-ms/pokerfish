@@ -38,8 +38,8 @@ void DrawCard(CardRank rank, CardSuit suit, Vector2 dest) {
 	DrawTexturePro(card_texture, source, destination, origin, 0.0f, WHITE);
 }
 
-void DrawPlayerHand(void) {
-	int hand_size = player.hand->size;
+void DrawHandBottom(List* hand) {
+	int hand_size = hand->size;
 	if (hand_size == 0) return;
 
 	float spacing = 120.0f;
@@ -49,7 +49,7 @@ void DrawPlayerHand(void) {
 	float y_position = game_window.height - 100;
 
 	for (int i = 0; i < hand_size; i++) {
-		Card* card = (Card*)List_GetByIndex(player.hand, i);
+		Card* card = (Card*)List_GetByIndex(hand, i);
 		if (card) {
 			Vector2 position = { start_x + i * spacing, y_position };
 			DrawCard(card->rank, card->suit, position);

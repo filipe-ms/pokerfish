@@ -6,4 +6,4 @@
 void LoadCardTextures(void);
 void UnloadCardTextures(void);
 void DrawCard(CardRank rank, CardSuit suit, Vector2 dest);
-void DrawPlayerHand(void);
+void DrawHandBottom(List* hand);

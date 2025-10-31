@@ -45,7 +45,7 @@
     <ClInclude Include="..\..\include\draw_card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\game_manager.h">
+    <ClInclude Include="..\..\include\game_blackjack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,7 +80,7 @@
     <ClCompile Include="..\..\src\draw_card.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game_manager.c">
+    <ClCompile Include="..\..\src\game_blackjack.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

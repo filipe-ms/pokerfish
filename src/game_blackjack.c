@@ -1,6 +1,6 @@
-// game_manager.c
+// game_blackjack.c
 
-#include "game_manager.h"
+#include "game_blackjack.h"
 #include "player.h"
 #include "card_stack.h"
 #include "draw_card.h"
@@ -40,10 +40,10 @@ void UpdateGame(void) {
 
 void DrawGame(void) {
 	DrawBackground();
-	DrawPlayerHand();
+	DrawHandBottom(player.hand);
 }
 
-Scene game = {
+Scene blackjack = {
 	.load_scene = LoadGame,
 	.unload_scene = UnloadGame,
 	.update_scene = UpdateGame,
@@ -61,9 +61,9 @@ static int GetHandSum() {
 	for (int i = 0; i < player.hand->size; i++) {
 		Card* card = (Card*)List_GetByIndex(player.hand, i);
 		if (card) {
-			if (card->rank >= TEN && card->rank <= KING) sum += 10;
-			else if (card->rank >= TWO && card->rank <= NINE) sum += (int)(card->rank + 1);
-			else if (card->rank == ACE) ace_count++;
+			if ((int)card->rank >= TEN && (int)card->rank <= KING) sum += 10;
+			else if ((int)card->rank >= TWO && (int)card->rank <= NINE) sum += (int)(card->rank + 1);
+			else if ((int)card->rank == ACE) ace_count++;
 		}
 	}
 

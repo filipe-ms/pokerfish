@@ -304,7 +304,7 @@
     <ClInclude Include="..\..\include\background.h" />
     <ClInclude Include="..\..\include\card_stack.h" />
     <ClInclude Include="..\..\include\game_config.h" />
-    <ClInclude Include="..\..\include\game_manager.h" />
+    <ClInclude Include="..\..\include\game_blackjack.h" />
     <ClInclude Include="..\..\include\game_menu.h" />
     <ClInclude Include="..\..\include\game_screen.h" />
     <ClInclude Include="..\..\include\list.h" />
@@ -324,7 +324,7 @@
     <ClCompile Include="..\..\src\scene_manager.c" />
     <ClCompile Include="..\..\src\game_screen.c" />
     <ClCompile Include="..\..\src\draw_card.c" />
-    <ClCompile Include="..\..\src\game_manager.c" />
+    <ClCompile Include="..\..\src\game_blackjack.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\icon.ico" />
