@@ -302,8 +302,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\background.h" />
-    <ClInclude Include="..\..\include\cards.h" />
+    <ClInclude Include="..\..\include\card_stack.h" />
     <ClInclude Include="..\..\include\game_config.h" />
+    <ClInclude Include="..\..\include\game_manager.h" />
     <ClInclude Include="..\..\include\game_menu.h" />
     <ClInclude Include="..\..\include\game_screen.h" />
     <ClInclude Include="..\..\include\list.h" />
@@ -314,7 +315,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\background.c" />
-    <ClCompile Include="..\..\src\cards.c" />
+    <ClCompile Include="..\..\src\card_stack.c" />
     <ClCompile Include="..\..\src\list.c" />
     <ClCompile Include="..\..\src\player.c" />
     <ClCompile Include="..\..\src\game_config.c" />

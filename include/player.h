@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cards.h"
+#include "card_stack.h"
 #include "list.h"
 
 typedef struct
@@ -9,8 +9,7 @@ typedef struct
 	List* hand;
 } Player;
 
-Player* Player_Get(void);
-void Player_Init(void);
+extern Player player;
+void Player_Init(Card* cards);
 void Player_AddScore(int sum);
-void Player_DrawCard(List* deck);
-int Player_GetHandSum(void);
+void Player_AddToHand(Card card);

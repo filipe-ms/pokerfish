@@ -1,7 +1,7 @@
 #pragma once
 
 #include "raylib.h"
-#include "cards.h"
+#include "card_stack.h"
 
 void LoadCardTextures(void);
 void UnloadCardTextures(void);

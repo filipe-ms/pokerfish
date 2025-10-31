@@ -3,9 +3,10 @@
 #pragma once
 
 typedef enum {
-    BG_BLUE,
+    BG_BLUE = 0,
     BG_GREEN,
-    BG_TEAL
+    BG_TEAL,
+    BG_TOTAL
 } BackgroundStyle;
 
 typedef enum {

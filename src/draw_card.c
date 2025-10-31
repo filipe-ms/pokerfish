@@ -39,7 +39,7 @@ void DrawCard(CardRank rank, CardSuit suit, Vector2 dest) {
 }
 
 void DrawPlayerHand(void) {
-	int hand_size = Player_Get()->hand->size;
+	int hand_size = player.hand->size;
 	if (hand_size == 0) return;
 
 	float spacing = 120.0f;
@@ -49,7 +49,7 @@ void DrawPlayerHand(void) {
 	float y_position = game_window.height - 100;
 
 	for (int i = 0; i < hand_size; i++) {
-		Card* card = (Card*)List_GetByIndex(Player_Get()->hand, i);
+		Card* card = (Card*)List_GetByIndex(player.hand, i);
 		if (card) {
 			Vector2 position = { start_x + i * spacing, y_position };
 			DrawCard(card->rank, card->suit, position);

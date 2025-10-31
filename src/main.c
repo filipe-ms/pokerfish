@@ -15,14 +15,14 @@ static void UnloadGameResources(void);
 int main(void)
 {
 	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
-	InitWindow(game_window.width, game_window.height, "Hello Raylib");
+	InitWindow(game_window.width, game_window.height, "PokerFish");
 	SearchAndSetResourceDir("resources");
 
 	LoadGameResources();
 
 	ChangeScene(game_menu);
 	
-	while (!GameShouldQuit()) SceneLoop();
+	while (!GameShouldQuit() && !WindowShouldClose()) SceneLoop();
 
 	UnloadGameResources();
 

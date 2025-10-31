@@ -39,16 +39,16 @@ void DrawBackground(void) {
 }
 
 void LoadBackground(void) {
-    background[0] = LoadTexture("bg_blue.png");
-    background[1] = LoadTexture("bg_teal.png");
-    background[2] = LoadTexture("bg_green.png");
-    
-    current_background.style = BG_GREEN;
+    background[BG_BLUE] = LoadTexture("bg_blue.png");
+    background[BG_TEAL] = LoadTexture("bg_teal.png");
+    background[BG_GREEN] = LoadTexture("bg_green.png");
+
+    current_background.style = BG_TEAL;
     current_background.stretch = STRETCH_SCREEN;
 }
 
 void UnloadBackground(void) {
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < BG_TOTAL; i++) {
         UnloadTexture(background[i]);
     }
 }

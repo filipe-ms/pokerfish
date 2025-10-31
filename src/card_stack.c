@@ -1,9 +1,10 @@
-#include "cards.h"
+#include "card_stack.h"
 #include "raylib.h"
 
-List* deck = NULL;
+// Singleton
+List* card_stack = NULL;
 
-static void Shuffle(List* source, List* destination) {
+static void CardStack_Shuffle(List* source, List* destination) {
 	if (!source || !destination) return;
 	while (source->size > 0) {
 		int index = source->size > 0 ? GetRandomValue(0, source->size - 1) : 0;
@@ -20,10 +21,10 @@ static void Shuffle(List* source, List* destination) {
 	}
 }
 
-void InitDeck(void) {
-	if (deck) {
-		List_Destroy(deck);
-		deck = NULL;
+void CardStack_Init(void) {
+	if (card_stack) {
+		List_Destroy(card_stack);
+		card_stack = NULL;
 	}
 
 	List* orderedDeck = List_Create(sizeof(Card));
@@ -38,23 +39,23 @@ void InitDeck(void) {
 		}
 	}
 
-	deck = List_Create(sizeof(Card));
+	card_stack = List_Create(sizeof(Card));
 
-	if (!deck) {
+	if (!card_stack) {
 		List_Destroy(orderedDeck);
 		return;
 	}
 
-	Shuffle(orderedDeck, deck);
+	CardStack_Shuffle(orderedDeck, card_stack);
 
 	List_Destroy(orderedDeck);
 }
 
-Card GetAndRemoveTopCard(void) {
-	if (deck == NULL || deck->size == 0) return (Card) { 0 };
+Card CardStack_TakeTopCard(void) {
+	if (card_stack == NULL || card_stack->size == 0) return (Card) { 0 };
 
-	Card* card_ptr = (Card*)List_GetByIndex(deck, 0);
+	Card* card_ptr = (Card*)List_GetByIndex(card_stack, 0);
 	Card pickedCard = *card_ptr;
-	List_RemoveFirst(deck);
+	List_RemoveFirst(card_stack);
 	return pickedCard;
 }

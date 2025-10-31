@@ -32,7 +32,7 @@ typedef struct {
 	enum CardRank rank;
 } Card;
 
-extern List* deck;
+extern List* card_stack;
 
-void InitDeck(void);
-Card GetAndRemoveTopCard(void);
+void CardStack_Init(void);
+Card CardStack_TakeTopCard(void);
