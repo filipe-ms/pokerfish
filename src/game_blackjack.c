@@ -10,6 +10,18 @@
 #include "raylib.h"
 #include "background.h"
 
+static void LoadGame(void);
+static void UnloadGame(void);
+static void UpdateGame(void);
+static void DrawGame(void);
+
+Scene blackjack = {
+	.load_scene = LoadGame,
+	.unload_scene = UnloadGame,
+	.update_scene = UpdateGame,
+	.draw_scene = DrawGame
+};
+
 static int GetHandSum(void);
 
 static void LoadGame(void) {
@@ -44,15 +56,6 @@ static void DrawGame(void) {
 	DrawHand(player.hand, game_window.game_area_center_width, game_window.height - 100, 0);
 }
 
-Scene blackjack = {
-	.load_scene = LoadGame,
-	.unload_scene = UnloadGame,
-	.update_scene = UpdateGame,
-	.draw_scene = DrawGame
-};
-
-#pragma region PRIVATE_FUNCTIONS
-
 static int GetHandSum() {
 	int sum = 0;
 	int ace_count = 0;
@@ -75,5 +78,3 @@ static int GetHandSum() {
 
 	return sum;
 }
-
-#pragma endregion PRIVATE_FUNCTIONS

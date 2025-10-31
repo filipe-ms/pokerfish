@@ -6,6 +6,7 @@
 #include "scene_manager.h"
 #include "game_screen.h"
 #include "game_blackjack.h"
+#include "game_poker.h"
 
 #include "raylib.h"
 
@@ -21,7 +22,7 @@ static void UpdateOption() {
     else if (IsKeyPressed(KEY_UP)) option--;
     
     else if (IsKeyPressed(KEY_ENTER) && option == QUIT) EndSceneManager();
-    else if (IsKeyPressed(KEY_ENTER) && option == START) ChangeScene(blackjack);
+    else if (IsKeyPressed(KEY_ENTER) && option == START) ChangeScene(poker);
 
     if(option < START) option = QUIT;
     if(option > QUIT) option = START;

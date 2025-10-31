@@ -2,4 +2,4 @@
 
 #include "scene_manager.h"
 
-extern Scene game_poker;
+extern Scene poker;
